@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        ".vimrc": "bat",
+        "58_is_little_endian.c": "cpp"
+    }
+}

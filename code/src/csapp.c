@@ -733,15 +733,15 @@ int open_clientfd(char *hostname, int port)
     struct sockaddr_in serveraddr;
 
     if ((clientfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-	return -1; /* check errno for cause of error */
+	    return -1; /* check errno for cause of error */
 
     /* Fill in the server's IP address and port */
     if ((hp = gethostbyname(hostname)) == NULL)
-	return -2; /* check h_errno for cause of error */
+	    return -2; /* check h_errno for cause of error */
     bzero((char *) &serveraddr, sizeof(serveraddr));
     serveraddr.sin_family = AF_INET;
     bcopy((char *)hp->h_addr_list[0], 
-	  (char *)&serveraddr.sin_addr.s_addr, hp->h_length);
+        (char *)&serveraddr.sin_addr.s_addr, hp->h_length);
     serveraddr.sin_port = htons(port);
 
     /* Establish a connection with the server */
